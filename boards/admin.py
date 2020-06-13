@@ -35,16 +35,16 @@ class BoardAdmin(admin.ModelAdmin):
                 "fields": (
                     "name",
                     "description",
-                    "country",
-                    "city",
-                    "address",
+                    # "country",
+                    # "city",
+                    # "address",
                     "price",
                     "board_type",
                 )
             },
         ),
-        ("Times", {"fields": ("check_in", "check_out", "instant_book")}),
-        ("Spaces", {"fields": ("guests", "beds", "bedrooms", "baths")}),
+        # ("Times", {"fields": ("check_in", "check_out", "instant_book")}),
+        # ("Spaces", {"fields": ("guests", "beds", "bedrooms", "baths")}),
         (
             "More About the Space",
             {"fields": ("teaching_textbooks",
@@ -55,30 +55,30 @@ class BoardAdmin(admin.ModelAdmin):
 
     list_display = (
         "name",
-        "country",
-        "city",
+        # "country",
+        # "city",
         "price",
-        "guests",
-        "beds",
-        "bedrooms",
-        "baths",
-        "check_in",
-        "check_out",
-        "instant_book",
-        "count_amenities",
+        # "guests",
+        # "beds",
+        # "bedrooms",
+        # "baths",
+        # "check_in",
+        # "check_out",
+        # "instant_book",
+        # "count_amenities",
         "count_photos",
-        "total_rating",
+        # "total_rating",
     )
 
     list_filter = (
-        "instant_book",
-        "host__superhost",
+        # "instant_book",
+        # "host__superhost",
         "board_type",
         "teaching_textbooks",
         "lecture_grade",
         "course_period",
-        "city",
-        "country",
+        # "city",
+        # "country",
     )
 
     raw_id_fields = ("host",)
@@ -88,6 +88,7 @@ class BoardAdmin(admin.ModelAdmin):
     filter_horizontal = ("teaching_textbooks",
                          "lecture_grade", "course_period")
 
+# 강의 목차로 바꿀 것
     def count_amenities(self, obj):
         return obj.amenities.count()
 

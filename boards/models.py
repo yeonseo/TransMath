@@ -23,7 +23,8 @@ class BoardType(AbstractItem):
     """ BoardType Model Definition """
 
     class Meta:
-        verbose_name = "Board Type"
+        verbose_name_plural = "[게시판 관리] 게시판 종류"
+        # verbose_name = "[게시판 관리] 게시판 종류"
 
 
 # 강의 소개에 들어갈 공통된 것들
@@ -32,7 +33,7 @@ class TeachingTextbooks(AbstractItem):
     """ Amenity Model Definition """
 
     class Meta:
-        verbose_name_plural = "강의 교재"
+        verbose_name_plural = "강의 게시판 - 강의 교재"
 
 
 class LectureGrade(AbstractItem):
@@ -40,7 +41,7 @@ class LectureGrade(AbstractItem):
     """ Amenity Model Definition """
 
     class Meta:
-        verbose_name_plural = "강의대상"
+        verbose_name_plural = "강의 게시판 - 강의대상"
 
 
 class TextbookFeatures(AbstractItem):
@@ -48,7 +49,7 @@ class TextbookFeatures(AbstractItem):
     """ Amenity Model Definition """
 
     class Meta:
-        verbose_name_plural = "교재 특징"
+        verbose_name_plural = "강의 게시판 - 교재 특징"
 
 
 class CoursePeriod(AbstractItem):
@@ -56,7 +57,7 @@ class CoursePeriod(AbstractItem):
     """ Amenity Model Definition """
 
     class Meta:
-        verbose_name_plural = "수강기간"
+        verbose_name_plural = "강의 게시판 - 수강기간"
 
 
 class Photo(core_models.TimeStampedModel):
@@ -78,17 +79,17 @@ class Board(core_models.TimeStampedModel):
 
     name = models.CharField(max_length=140)
     description = models.TextField()
-    country = CountryField()
-    city = models.CharField(max_length=80)
+    # country = CountryField()
+    # city = models.CharField(max_length=80)
     price = models.IntegerField()
-    address = models.CharField(max_length=140)
-    guests = models.IntegerField(help_text="How many people will be staying?")
-    beds = models.IntegerField()
-    bedrooms = models.IntegerField()
-    baths = models.IntegerField()
-    check_in = models.TimeField()
-    check_out = models.TimeField()
-    instant_book = models.BooleanField(default=False)
+    # address = models.CharField(max_length=140)
+    # guests = models.IntegerField(help_text="How many people will be staying?")
+    # beds = models.IntegerField()
+    # bedrooms = models.IntegerField()
+    # baths = models.IntegerField()
+    # check_in = models.TimeField()
+    # check_out = models.TimeField()
+    # instant_book = models.BooleanField(default=False)
     host = models.ForeignKey(
         "users.User", related_name="boards", on_delete=models.CASCADE
     )
@@ -112,14 +113,14 @@ class Board(core_models.TimeStampedModel):
     def get_absolute_url(self):
         return reverse("boards:detail", kwargs={"pk": self.pk})
 
-    def total_rating(self):
-        all_reviews = self.reviews.all()
-        all_ratings = 0
-        if len(all_reviews) > 0:
-            for review in all_reviews:
-                all_ratings += review.rating_average()
-            return round(all_ratings / len(all_reviews), 2)
-        return 0
+    # def total_rating(self):
+    #     all_reviews = self.reviews.all()
+    #     all_ratings = 0
+    #     if len(all_reviews) > 0:
+    #         for review in all_reviews:
+    #             all_ratings += review.rating_average()
+    #         return round(all_ratings / len(all_reviews), 2)
+    #     return 0
 
     def first_photo(self):
         try:
@@ -131,3 +132,6 @@ class Board(core_models.TimeStampedModel):
     def get_next_four_photos(self):
         photos = self.photos.all()[1:5]
         return photos
+
+    class Meta:
+        verbose_name_plural = "1. 모든 게시판 관리"
