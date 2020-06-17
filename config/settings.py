@@ -64,7 +64,7 @@ PROJECT_APPS = [
     "users.apps.UsersConfig",
     "boards.apps.BoardsConfig",
     "lectures.apps.LecturesConfig",
-    "enrolments.apps.EnrolmentsConfig"
+    "enrolments.apps.EnrolmentsConfig",
     "consultings.apps.ConsultingsConfig",
 ]
 
