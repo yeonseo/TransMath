@@ -17,6 +17,7 @@ pillow = "*"
 whitenoise = "==5.1.0"
 text-unidecode = "*"
 django-cors-headers = "*"
+django-phone-field = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.8"
