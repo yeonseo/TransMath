@@ -37,6 +37,7 @@ DJANGO_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "phone_field",
 ]
 
 THIRD_PARTY_APPS = [
@@ -64,6 +65,7 @@ PROJECT_APPS = [
     "boards.apps.BoardsConfig",
     "lectures.apps.LecturesConfig",
     "enrolments.apps.EnrolmentsConfig"
+    "consultings.apps.ConsultingsConfig",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
