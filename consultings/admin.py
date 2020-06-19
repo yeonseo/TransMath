@@ -1,5 +1,4 @@
 from django.contrib import admin
-from django.utils.html import mark_safe
 from . import models
 
 @admin.register(models.Consulting)

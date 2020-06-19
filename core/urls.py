@@ -1,6 +1,6 @@
 from django.urls import path
-from rooms import views as room_views
+from boards import views as board_view
 
 app_name = "core"
 
-urlpatterns = [path("", room_views.HomeView.as_view(), name="home")]
+urlpatterns = [path("", board_view.MainView.as_view(), name="Main")]
