@@ -24,15 +24,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = bool(os.environ.get("DEBUG"))
-DEBUG = False
+DEBUG = True
 
-SECRET_KEY = os.environ.get("Pu+@f]6N~\gGNtRtmJ:Q")
+SECRET_KEY = "l%5$cesl(k&%5&p8(+=nqu_o9qax4ic@ec^etek7(g*egn6a(v"
 
-
-if DEBUG:
-    ALLOWED_HOSTS = []
-else:
-    ALLOWED_HOSTSALLOWED_HOSTS = [".elasticbeanstalk.com"]
+ALLOWED_HOSTS = []
 
 # Application definition
 
