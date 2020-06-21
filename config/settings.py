@@ -71,6 +71,7 @@ PROJECT_APPS = [
     "lectures.apps.LecturesConfig",
     "enrolments.apps.EnrolmentsConfig",
     "consultings.apps.ConsultingsConfig",
+    "consultings2.apps.Consultings2Config",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
