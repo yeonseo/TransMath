@@ -15,6 +15,11 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+ALLOWED_HOSTS = [
+    'localhost',
+    '.ap-northeast-2.compute.amazonaws.com',
+    '15.164.170.42',
+]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -24,15 +29,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = bool(os.environ.get("DEBUG"))
-DEBUG = False
+DEBUG = True
 
-SECRET_KEY = os.environ.get("Pu+@f]6N~\gGNtRtmJ:Q")
-
-
-if DEBUG:
-    ALLOWED_HOSTS = []
-else:
-    ALLOWED_HOSTSALLOWED_HOSTS = [".elasticbeanstalk.com"]
+SECRET_KEY = "l%f$cesl(k&%5&p8(+=nqu_o9qax4ic@ec^etek7(g*egn6a(v"
 
 # Application definition
 
@@ -112,27 +111,44 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-if DEBUG:
+# if DEBUG:
+#
+#    DATABASES = {
+#        "default": {
+#            "ENGINE": "django.db.backends.sqlite3",
+#            "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+#        }
+#    }
+# else:
+#
+#    DATABASES = {
+#        "default": {
+#            "ENGINE": "django.db.backends.postgresql",
+#            "HOST": "trans-math.c8yyrttft0n1.ap-northeast-2.rds.amazonaws.com",
+#            "NAME": "trans-math",
+#            "USER": "postgresql",
+#            "PASSWORD": "trans201!*!",
+#            "PORT": "5432",
+#        }
+#    }
 
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-        }
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "HOST": "trans-math.c8yyrttft0n1.ap-northeast-2.rds.amazonaws.com",
+        "NAME": "postgres",
+        "USER": "trans-math",
+        "PASSWORD": "trans201!*!",
+        "PORT": "5432",
     }
-else:
+}
 
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql",
-            "HOST": os.environ.get("RDS_HOST"),
-            "NAME": os.environ.get("RDS_NAME"),
-            "USER": os.environ.get("RDS_USER"),
-            "PASSWORD": os.environ.get("RDS_PASSWORD"),
-            "PORT": "5432",
-        }
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
     }
-
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
