@@ -17,6 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 ALLOWED_HOSTS = [
     'localhost',
+    '127.0.0.1',
     '.ap-northeast-2.compute.amazonaws.com',
     '15.164.170.42',
 ]
@@ -132,17 +133,6 @@ WSGI_APPLICATION = 'config.wsgi.application'
 #            "PORT": "5432",
 #        }
 #    }
-
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "HOST": "trans-math.c8yyrttft0n1.ap-northeast-2.rds.amazonaws.com",
-        "NAME": "postgres",
-        "USER": "trans-math",
-        "PASSWORD": "trans201!*!",
-        "PORT": "5432",
-    }
-}
 
 DATABASES = {
     "default": {

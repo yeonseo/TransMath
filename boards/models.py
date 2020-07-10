@@ -79,17 +79,7 @@ class Board(core_models.TimeStampedModel):
 
     name = models.CharField(max_length=140)
     description = models.TextField()
-    # country = CountryField()
-    # city = models.CharField(max_length=80)
     price = models.IntegerField()
-    # address = models.CharField(max_length=140)
-    # guests = models.IntegerField(help_text="How many people will be staying?")
-    # beds = models.IntegerField()
-    # bedrooms = models.IntegerField()
-    # baths = models.IntegerField()
-    # check_in = models.TimeField()
-    # check_out = models.TimeField()
-    # instant_book = models.BooleanField(default=False)
     host = models.ForeignKey(
         "users.User", related_name="boards", on_delete=models.CASCADE
     )
@@ -105,10 +95,6 @@ class Board(core_models.TimeStampedModel):
 
     def __str__(self):
         return self.name
-
-    def save(self, *args, **kwargs):
-        self.city = str.capitalize(self.city)
-        super().save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse("boards:detail", kwargs={"pk": self.pk})

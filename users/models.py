@@ -38,18 +38,19 @@ class User(AbstractUser):
     CURRENCY_CHOICES = ((CURRENCY_USD, "USD"), (CURRENCY_KRW, "KRW"))
 
     LOGIN_EMAIL = "email"
-    LOGIN_GITHUB = "github"
     LOGING_KAKAO = "kakao"
+    LOGING_NAVER = "naver"
 
     LOGIN_CHOICES = (
         (LOGIN_EMAIL, "Email"),
-        (LOGIN_GITHUB, "Github"),
         (LOGING_KAKAO, "Kakao"),
+        (LOGING_KAKAO, "naver"),
     )
 
     first_name = models.CharField(
         _("first name"), max_length=30, blank=True, default="Unnamed User"
     )
+
     avatar = models.ImageField(upload_to="avatars", blank=True)
     gender = models.CharField(
         _("gender"), choices=GENDER_CHOICES, max_length=10, blank=True
