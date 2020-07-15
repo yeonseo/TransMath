@@ -48,4 +48,4 @@ importlib-resources = "==2.0.1"
 psycopg2-binary = "==2.8.4"
 
 [requires]
-python_version = "3.6"
+python_version = "3.8"

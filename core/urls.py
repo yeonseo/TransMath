@@ -1,11 +1,8 @@
-from django.urls import path, include
-from consultings import views as consulting_view
-from consultings2 import views as consulting_view2
+from django.urls import path
+from boards import views as board_views
 
 app_name = "core"
 
 urlpatterns = [
-    path("", include('boards.urls')),
-    path("consulting2/", consulting_view.MainView.as_view(), name="Main"),
-    path("consulting3/", consulting_view2.MainView.as_view(), name="Main"),
+    path("", board_views.HomeView.as_view(), name="home"),
 ]
